@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { Suspense, lazy } from "react";
+import MainLayout from "./componets/Layout/MainLayout";
+import { Route, Routes } from "react-router-dom";
+import ProjectUpdate from "./componets/pages/ProjectUpdate";
+// import { QuarterlyPerformance } from "./componets/pages/QuarterlyPerformance";
+const DashBoard = lazy(() => import('./componets/pages/DashBoard'));
+const ActionTakenReport = lazy(() => import('./componets/pages/ActionTakenReport'));
+const QuarterlyPerformance = lazy(() => import('./componets/pages/QuarterlyPerformance'));
+const BusinessProspects = lazy(() => import('./componets/pages/BusinessProspects'));
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainLayout>
+      <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/" element={<DashBoard />} />
+        <Route path="page2" element={<ActionTakenReport />}/>
+        <Route path="quarterly-performance" element={<QuarterlyPerformance />}/>
+        <Route path="business-prospects" element={<BusinessProspects />}/>
+        <Route path="project-update" element={<ProjectUpdate />}/>
+      </Routes>
+      </Suspense>
+    </MainLayout>
   );
 }
 
