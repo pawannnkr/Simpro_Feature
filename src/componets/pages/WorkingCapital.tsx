@@ -1,38 +1,8 @@
 import React, { useState ,ChangeEvent} from "react";
 const data = [
   {
-    Particulars: "Order Book",
-    FYpre: 100,
-    FYcurrent: 120,
-    Growth: '50%',
-    Q1FYCurrent_A: 25,
-    Q2FYCurrent_A: 25,
-    Q3FYCurrent_A: 25,
-    Q4FYCurrent_A: 25,
-    Q1FYCurrent_B: 25,
-    Q2FYCurrent_B: 25,
-    Q3FYCurrent_B: 25,
-    Q4FYCurrent_B: 25,
-  },
-  {
-    Particulars: "Order Inflow",
-    FYpre: 100,
-    FYcurrent: 10,
-    Growth: '50%',
-    Q1FYCurrent_A: 25,
-    Q2FYCurrent_A: 25,
-    Q3FYCurrent_A: 25,
-    Q4FYCurrent_A: 25,
-    Q1FYCurrent_B: 25,
-    Q2FYCurrent_B: 25,
-    Q3FYCurrent_B: 25,
-    Q4FYCurrent_B: 25,
-  },
-  {
     Particulars: "Sales",
     FYpre: 100,
-    FYcurrent: 160,
-    Growth: '50%',
     Q1FYCurrent_A: 25,
     Q2FYCurrent_A: 25,
     Q3FYCurrent_A: 25,
@@ -41,12 +11,12 @@ const data = [
     Q2FYCurrent_B: 25,
     Q3FYCurrent_B: 25,
     Q4FYCurrent_B: 25,
+    FYcurrent_A: 110,
+    FYcurrent_B:200,
   },
   {
-    Particulars: "EBITDA",
+    Particulars: "Current Assets",
     FYpre: 100,
-    FYcurrent: 170,
-    Growth: '50%',
     Q1FYCurrent_A: 25,
     Q2FYCurrent_A: 25,
     Q3FYCurrent_A: 25,
@@ -55,12 +25,12 @@ const data = [
     Q2FYCurrent_B: 25,
     Q3FYCurrent_B: 25,
     Q4FYCurrent_B: 25,
+    FYcurrent_A: 280,
+    FYcurrent_B:200,
   },
   {
-    Particulars: "% margin",
+    Particulars: "Accounts Receivable",
     FYpre: 100,
-    FYcurrent: 150,
-    Growth: '50%',
     Q1FYCurrent_A: 25,
     Q2FYCurrent_A: 25,
     Q3FYCurrent_A: 25,
@@ -69,12 +39,12 @@ const data = [
     Q2FYCurrent_B: 25,
     Q3FYCurrent_B: 25,
     Q4FYCurrent_B: 25,
+    FYcurrent_A: 390,
+    FYcurrent_B:200,
   },
   {
-    Particulars: "Other Income",
+    Particulars: "Inventory",
     FYpre: 100,
-    FYcurrent: 150,
-    Growth: '50%',
     Q1FYCurrent_A: 25,
     Q2FYCurrent_A: 25,
     Q3FYCurrent_A: 25,
@@ -83,12 +53,12 @@ const data = [
     Q2FYCurrent_B: 25,
     Q3FYCurrent_B: 25,
     Q4FYCurrent_B: 25,
+    FYcurrent_A: 240,
+    FYcurrent_B:200,
   },
   {
-    Particulars: "Depreciation",
+    Particulars: "WIP",
     FYpre: 100,
-    FYcurrent: 150,
-    Growth: '50%',
     Q1FYCurrent_A: 25,
     Q2FYCurrent_A: 25,
     Q3FYCurrent_A: 25,
@@ -97,12 +67,12 @@ const data = [
     Q2FYCurrent_B: 25,
     Q3FYCurrent_B: 25,
     Q4FYCurrent_B: 25,
+    FYcurrent_A: 220,
+    FYcurrent_B:200,
   },
   {
-    Particulars: "PBIT",
-    FYpre: 100,
-    FYcurrent: 150,
-    Growth: '50%',
+    Particulars: "Other Current Assets",
+    FYpre: 100, 
     Q1FYCurrent_A: 25,
     Q2FYCurrent_A: 25,
     Q3FYCurrent_A: 25,
@@ -111,12 +81,12 @@ const data = [
     Q2FYCurrent_B: 25,
     Q3FYCurrent_B: 25,
     Q4FYCurrent_B: 25,
+    FYcurrent_A: 270,
+    FYcurrent_B:200,
   },
   {
-    Particulars: "% Margin(including other income)",
+    Particulars: "GWC",
     FYpre: 100,
-    FYcurrent: 150,
-    Growth: '50%',
     Q1FYCurrent_A: 25,
     Q2FYCurrent_A: 25,
     Q3FYCurrent_A: 25,
@@ -125,12 +95,12 @@ const data = [
     Q2FYCurrent_B: 25,
     Q3FYCurrent_B: 25,
     Q4FYCurrent_B: 25,
+    FYcurrent_A: 210,
+    FYcurrent_B:200,
   },
   {
-    Particulars: "Interest",
+    Particulars: "GWC days",
     FYpre: 100,
-    FYcurrent: 150,
-    Growth: '50%',
     Q1FYCurrent_A: 25,
     Q2FYCurrent_A: 25,
     Q3FYCurrent_A: 25,
@@ -139,12 +109,12 @@ const data = [
     Q2FYCurrent_B: 25,
     Q3FYCurrent_B: 25,
     Q4FYCurrent_B: 25,
+    FYcurrent_A: 300,
+    FYcurrent_B:200,
   },
   {
-    Particulars: "PBT",
+    Particulars: "Current Liabilities",
     FYpre: 100,
-    FYcurrent: 150,
-    Growth: '50%',
     Q1FYCurrent_A: 25,
     Q2FYCurrent_A: 25,
     Q3FYCurrent_A: 25,
@@ -153,12 +123,12 @@ const data = [
     Q2FYCurrent_B: 25,
     Q3FYCurrent_B: 25,
     Q4FYCurrent_B: 25,
+    FYcurrent_A: 320,
+    FYcurrent_B:200,
   },
   {
-    Particulars: "PAT",
+    Particulars: "Vendor Balance",
     FYpre: 100,
-    FYcurrent: 150,
-    Growth: '50%',
     Q1FYCurrent_A: 25,
     Q2FYCurrent_A: 25,
     Q3FYCurrent_A: 25,
@@ -167,26 +137,70 @@ const data = [
     Q2FYCurrent_B: 25,
     Q3FYCurrent_B: 25,
     Q4FYCurrent_B: 25,
+    FYcurrent_A: 340,
+    FYcurrent_B:200,
   },
   {
-    Particulars: "% Margin (including other income)",
+    Particulars: "Customer Advances",
+    FYpre: 100, 
+    Q1FYCurrent_A: 25,
+    Q2FYCurrent_A: 25,
+    Q3FYCurrent_A: 25,
+    Q4FYCurrent_A: 25,
+    Q1FYCurrent_B: 25,
+    Q2FYCurrent_B: 25,
+    Q3FYCurrent_B: 25,
+    Q4FYCurrent_B: 25,
+    FYcurrent_A: 350,
+    FYcurrent_B:200,
+  },
+  {
+    Particulars: "Other Current  Liabilities",
     FYpre: 100,
-    FYcurrent: 150,
-    Growth: '50%',
+    Q1FYCurrent_A: 25,
+    Q2FYCurrent_A: 25,
+    Q3FYCurrent_A: 25,
+    Q4FYCurrent_A: 25,
+    Q1FYCurrent_B: 25,
+    Q2FYCurrent_B: 25,
+    Q3FYCurrent_B: 25,
+    Q4FYCurrent_B: 25,
+    FYcurrent_A: 360,
+    FYcurrent_B:200,
+  },
+  {
+    Particulars: "NWC",
+    FYpre: 100,
     Q1FYCurrent_A: 50,
     Q2FYCurrent_A: 50,
     Q3FYCurrent_A: 50,
-    Q4FYCurrent_A: 50,                                                                                                                                                                                                                                      
+    Q4FYCurrent_A: 50,
     Q1FYCurrent_B: 50,
     Q2FYCurrent_B: 50,
     Q3FYCurrent_B: 50,
-    Q4FYCurrent_B: 50                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ,
-  },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+    Q4FYCurrent_B: 50,
+    FYcurrent_A: 150,
+    FYcurrent_B:200,
+  },
+  {
+    Particulars: "NWC %",
+    FYpre: 100,
+    Q1FYCurrent_A: 50,
+    Q2FYCurrent_A: 50,
+    Q3FYCurrent_A: 50,
+    Q4FYCurrent_A: 50,
+    Q1FYCurrent_B: 50,
+    Q2FYCurrent_B: 50,
+    Q3FYCurrent_B: 50,
+    Q4FYCurrent_B: 50,
+    FYcurrent_A: 170,
+    FYcurrent_B:200,
+  },
   
 ];
 
 
-const SummaryForecast = () => {
+const WorkingCapital = () => {
   const [selectedFY, setSelectedFY] = useState("2023");
   const [selectedQtr, setSelectedQtr] = useState(["(A)", "(B)"]);
   const [selectedEntity, setSelectedEntity] = useState("");
@@ -204,14 +218,23 @@ const SummaryForecast = () => {
   };
 
 
-  const findGrowth = (cfy:number,pfy:number) =>{
-    const growth = ((cfy-pfy)/pfy)*100;
-    if(growth>=0){
-        return {value: growth, isUp: true};
+  const findBudgetQtr = (fyA:number,fyB:number) =>{
+    const budget = (((fyA-fyB)/fyB)*100);
+    if(budget>=0){
+        return {value: budget, isUp: true};
     }else{
-        return {value: growth, isUp: false};
+        return {value: budget, isUp: false};
     }
-  }
+  };
+
+  const findBudgetFyr = (fyA:number,fyB:number) =>{
+    const budget = (((fyA-fyB)/fyA)*100);
+    if(budget>=0){
+        return {value: budget, isUp: true};
+    }else{
+        return {value: budget, isUp: false};
+    }
+  };
 
   const filterData = () => {
     if (selectedEntity === "") {
@@ -225,7 +248,7 @@ const SummaryForecast = () => {
 
   return (
     <div>
-      <h3>P&L summary report and forecast</h3>
+      <h3>Subsidiary wise working capital</h3>
       <div className={"card "} style={{ maxHeight: "80vh", padding: "10px" }}>
         <div className="d-flex justify-content-end mb-2">
           <div className="form-floating">
@@ -255,7 +278,7 @@ const SummaryForecast = () => {
               <option value="">All Entities</option>
               {data.map((item) => (
                 <option key={item.Particulars} value={item.Particulars}>
-                  {item.Particulars}
+                {item.Particulars}
                 </option>
               ))}
             </select>
@@ -279,8 +302,10 @@ const SummaryForecast = () => {
               <th colSpan={2}>Q2 FY{selectedFY}</th>
               <th colSpan={2}>Q3 FY{selectedFY}</th>
               <th colSpan={2}>Q4 FY{selectedFY}</th>
-              <th rowSpan={2}>FY{Number(selectedFY)}</th>
-              <th rowSpan={2}>Growth %</th>
+              <th rowSpan={2}>FY{Number(selectedFY)}{selectedQtr[0]}</th>
+              <th rowSpan={2}>FY{Number(selectedFY)}{selectedQtr[1]}</th>
+              <th rowSpan={2}>Budget v/s Actual {Number(selectedFY)}-{Number(selectedFY)-1}</th>
+              <th rowSpan={2}>Year on Year {Number(selectedFY)}-{Number(selectedFY)-1}</th>
             </tr>
                 <tr>
                   <th scope="col">Q1 FY{selectedFY}{selectedQtr[0]}</th>
@@ -296,13 +321,14 @@ const SummaryForecast = () => {
             </thead>
             <tbody>
               {filterData().map((val, index) => {
-                    const info = findGrowth(val.FYcurrent, val.FYpre);
-    const isSalesOrMargin = val.Particulars === "Sales" || val.Particulars === "% Margin";
-    const isSelectedEntity = val.Particulars.toLowerCase().includes(selectedEntity.toLowerCase());
+                    const info = findBudgetQtr(val.FYcurrent_A, val.FYcurrent_B);
+                    const fyr_info = findBudgetFyr(val.FYpre, val.FYcurrent_A)
+    //const isSalesOrMargin = val.Particulars === "GWC" || val.Particulars === "GWC days" ||val.Particulars === "NWC"||val.Particulars === "NWC %";
+    //const isSelectedEntity = val.Particulars.toLowerCase().includes(selectedEntity.toLowerCase());
 
     return (
-      <tr key={index} className={isSelectedEntity ? "highlight-row" : ""}>
-        <th scope="row" className={isSalesOrMargin ? "bold-text" : ""}>
+      <tr key={index} /*className={isSelectedEntity ? "highlight-row" : ""}*/>
+        <th scope="row" /*className={isSalesOrMargin ? "bold-text" : ""}*/>
           {val.Particulars.includes("Margin") ? (
             <>
               % Margin <sub style={{ fontSize: "smaller" }}>(including other income)</sub>
@@ -320,8 +346,10 @@ const SummaryForecast = () => {
         <td>{val.Q2FYCurrent_B}</td>
         <td>{val.Q3FYCurrent_B}</td>
         <td>{val.Q4FYCurrent_B}</td>
-        <td>{val.FYcurrent}</td>
+        <td>{val.FYcurrent_A}</td>
+        <td>{val.FYcurrent_B}</td>
         <td>{info.value}% {info.isUp ? <i style={{ color: "green" }} className="fa-solid fa-arrow-trend-up fa-fade"></i> : <i style={{ color: "red" }} className="fa-solid fa-arrow-trend-down fa-fade"></i>}</td>
+        <td>{fyr_info.value}% {fyr_info.isUp ? <i style={{ color: "green" }} className="fa-solid fa-arrow-trend-up fa-fade"></i> : <i style={{ color: "red" }} className="fa-solid fa-arrow-trend-down fa-fade"></i>}</td>
       </tr>
     );
               })}
@@ -333,5 +361,5 @@ const SummaryForecast = () => {
   );
 };
 
-export default SummaryForecast;
+export default WorkingCapital;
 
